@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:horsepay_web/utils/constants.dart';
@@ -40,8 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: [
                   Expanded(
                     flex: 1,
-                    child:
-                    Button(
+                    child: Button(
                         buttonText: 'NO',
                         onPressed: () {
                           Navigator.pop(context, false);
@@ -120,21 +120,20 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPageFinished: (done) {
                   setState(() {
                     isLoading = false;
-                    showErrorPage = false;
-                    // hideError();
                   });
                 },
                 onWebViewCreated: (controller) {
                   webViewController = controller;
                 },
                 onWebResourceError: (error) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text('Loading issue. Please check your nnetwork'),
-                    ),
-                  );
-                  setState((){
+                  setState(() {
                     showErrorPage = true;
+                    isLoading = true;
+                    // ScaffoldMessenger.of(context).showSnackBar(
+                    // SnackBar(
+                    //   content: Text('🙄 ${showErrorPage.toString()}'),
+                    // ),
+                    // );
                   });
                   // showError();
                 },
@@ -153,25 +152,47 @@ class _MyHomePageState extends State<MyHomePage> {
               showErrorPage
                   ? Container(
                       color: Colors.white,
-                      alignment: Alignment.center,
                       height: MediaQuery.of(context).size.height,
                       width: MediaQuery.of(context).size.width,
-                      child:  Center(
-                        child: Column(
-                          children: [
-                            Text(
-                                'An error occurred. \nPlease check your internet and try again'),
-                            Button(
-                                buttonText: 'Reload',
-                                onPressed: () {
-                                 webViewController!.reload();
-                                },
-                                color: Colors.white,
-                                textColor: kMainColor,
-                                borderColor: kMainColor,
-                                borderRadius: 0,
-                                buttonHeight: 40),
-                          ],
+                      child: Center(
+                        child: Padding(
+                          padding: const EdgeInsets.all(32.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            crossAxisAlignment: CrossAxisAlignment.stretch,
+                            children: [
+                              Image.asset(
+                                "images/wifi_off_icon.png",
+                                color: Colors.grey,
+                                height: 110.0,
+                                width: 110.0,
+                              ),
+                              const SizedBox(
+                                height: 30.0,
+                              ),
+                              const Text(
+                                'An error occurred. \nPlease check your internet and try again',
+                                textAlign: TextAlign.center,
+                              ),
+                              const SizedBox(
+                                height: 20.0,
+                              ),
+                              Button(
+                                  buttonText: 'Reload',
+                                  onPressed: () {
+                                    setState(() {
+                                      isLoading = true;
+                                      showErrorPage = false;
+                                    });
+                                    webViewController!.reload();
+                                  },
+                                  color: Colors.white,
+                                  textColor: kMainColor,
+                                  borderColor: kMainColor,
+                                  borderRadius: 0,
+                                  buttonHeight: 40),
+                            ],
+                          ),
                         ),
                       ),
                     )

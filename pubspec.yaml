@@ -62,6 +62,7 @@ flutter:
   assets:
     - images/index.png
     - images/logo_white.png
+    - images/wifi_off_icon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
