@@ -13,8 +13,8 @@ HorsePay is a mobile app that leverages on the webview_flutter package to displa
 
 **Screenshots**
 
-![alt first screen](s1.png)
-![alt second screen](s2.png)
-![alt third screen](s3.png)
-![alt fourth screen](s4.png)
-![alt fifth screen](s5.png)
+![alt first screen](s1.jpg)
+![alt second screen](s2.jpg)
+![alt third screen](s3.jpg)
+![alt fourth screen](s4.jpg)
+![alt fifth screen](s5.jpg)
