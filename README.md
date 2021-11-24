@@ -1,16 +1,20 @@
-# horsepay_web
+# HorsePay
 
-A new Flutter project.
+HorsePay is a mobile app that leverages on the webview_flutter package to display a payment platform.
 
-## Getting Started
+##What concepts are embedded within? 
 
-This project is a starting point for a Flutter application.
+- Loading Screen:
+  A loading screen displays before once the user launches the app. This screen only goes away when the webview is done loading.
+- BackPress handling:
+  When the user presses the back button on any part of the app, if the webview is able to go back, the user is navigated to the previous screen. Otherwise, the user is asked to confirm app exit.
+- Proper error management:
+  The app displays an error page each time the user is not connected. The error page has a clear error message and a refresh button which allows the user refresh the page. Once the refresh button is pressed, the page reloads and if the user is connected, progress is restored.
 
-A few resources to get you started if this is your first Flutter project:
+**Screenshots**
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![alt first screen](s1.png)
+![alt second screen](s2.png)
+![alt third screen](s3.png)
+![alt fourth screen](s4.png)
+![alt fifth screen](s5.png)
