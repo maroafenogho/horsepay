@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:horsepay_web/utils/constants.dart';
 
 import 'home.dart';
 
@@ -21,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
               image: DecorationImage(
                   image: AssetImage("images/index.png"), fit: BoxFit.cover)),
           child: Container(
-            color: const Color(0x99EA6D50),
+            color: kMainColor,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,

@@ -83,11 +83,6 @@ class _MyHomePageState extends State<MyHomePage> {
       return false;
     } else {
       _exitDialog();
-      // ScaffoldMessenger.of(context).showSnackBar(
-      //   const SnackBar(
-      //     content: Text('Stay a little longer'),
-      //   ),
-      // );
     }
     return true;
   }
@@ -110,95 +105,93 @@ class _MyHomePageState extends State<MyHomePage> {
       onWillPop: () => _exitApp(context),
       child: Scaffold(
         backgroundColor: Colors.white,
-        body: SafeArea(
-          child: Stack(
-            children: <Widget>[
-              WebView(
-                initialUrl: 'http://173.82.226.239/',
-                zoomEnabled: false,
-                javascriptMode: JavascriptMode.unrestricted,
-                onPageFinished: (done) {
-                  setState(() {
-                    isLoading = false;
-                  });
-                },
-                onWebViewCreated: (controller) {
-                  webViewController = controller;
-                },
-                onWebResourceError: (error) {
-                  setState(() {
-                    showErrorPage = true;
-                    isLoading = true;
-                    // ScaffoldMessenger.of(context).showSnackBar(
-                    // SnackBar(
-                    //   content: Text('🙄 ${showErrorPage.toString()}'),
-                    // ),
-                    // );
-                  });
-                  // showError();
-                },
-              ),
-              isLoading
-                  ? Container(
-                      color: Colors.white,
-                      height: MediaQuery.of(context).size.height,
-                      width: MediaQuery.of(context).size.width,
-                      child: const Center(
-                          child: CircularProgressIndicator(
-                        color: Color(0xffEA6D50),
-                      )),
-                    )
-                  : Container(),
-              showErrorPage
-                  ? Container(
-                      color: Colors.white,
-                      height: MediaQuery.of(context).size.height,
-                      width: MediaQuery.of(context).size.width,
-                      child: Center(
-                        child: Padding(
-                          padding: const EdgeInsets.all(32.0),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.stretch,
-                            children: [
-                              Image.asset(
-                                "images/wifi_off_icon.png",
-                                color: Colors.grey,
-                                height: 110.0,
-                                width: 110.0,
-                              ),
-                              const SizedBox(
-                                height: 30.0,
-                              ),
-                              const Text(
-                                'An error occurred. \nPlease check your internet and try again',
-                                textAlign: TextAlign.center,
-                              ),
-                              const SizedBox(
-                                height: 20.0,
-                              ),
-                              Button(
-                                  buttonText: 'Reload',
-                                  onPressed: () {
-                                    setState(() {
-                                      isLoading = true;
-                                      showErrorPage = false;
-                                    });
-                                    webViewController!.reload();
-                                  },
-                                  color: Colors.white,
-                                  textColor: kMainColor,
-                                  borderColor: kMainColor,
-                                  borderRadius: 0,
-                                  buttonHeight: 40),
-                            ],
-                          ),
+        body: Stack(
+          children: <Widget>[
+            WebView(
+              initialUrl: 'http://173.82.226.239/',
+              zoomEnabled: false,
+              javascriptMode: JavascriptMode.unrestricted,
+              onPageFinished: (done) {
+                setState(() {
+                  isLoading = false;
+                });
+              },
+              onWebViewCreated: (controller) {
+                webViewController = controller;
+              },
+              onWebResourceError: (error) {
+                setState(() {
+                  showErrorPage = true;
+                  isLoading = true;
+                  // ScaffoldMessenger.of(context).showSnackBar(
+                  // SnackBar(
+                  //   content: Text('🙄 ${showErrorPage.toString()}'),
+                  // ),
+                  // );
+                });
+                // showError();
+              },
+            ),
+            isLoading
+                ? Container(
+                    color: Colors.white,
+                    height: MediaQuery.of(context).size.height,
+                    width: MediaQuery.of(context).size.width,
+                    child: const Center(
+                        child: CircularProgressIndicator(
+                      color: Color(0xffEA6D50),
+                    )),
+                  )
+                : Container(),
+            showErrorPage
+                ? Container(
+                    color: Colors.white,
+                    height: MediaQuery.of(context).size.height,
+                    width: MediaQuery.of(context).size.width,
+                    child: Center(
+                      child: Padding(
+                        padding: const EdgeInsets.all(32.0),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.stretch,
+                          children: [
+                            Image.asset(
+                              "images/wifi_off_icon.png",
+                              color: Colors.grey,
+                              height: 110.0,
+                              width: 110.0,
+                            ),
+                            const SizedBox(
+                              height: 30.0,
+                            ),
+                            const Text(
+                              'An error occurred. \nPlease check your internet and try again',
+                              textAlign: TextAlign.center,
+                            ),
+                            const SizedBox(
+                              height: 20.0,
+                            ),
+                            Button(
+                                buttonText: 'Reload',
+                                onPressed: () {
+                                  setState(() {
+                                    isLoading = true;
+                                    showErrorPage = false;
+                                  });
+                                  webViewController!.reload();
+                                },
+                                color: Colors.white,
+                                textColor: kMainColor,
+                                borderColor: kMainColor,
+                                borderRadius: 0,
+                                buttonHeight: 40),
+                          ],
                         ),
                       ),
-                    )
-                  : Container(),
-            ],
-          ),
+                    ),
+                  )
+                : Container(),
+          ],
         ),
       ),
     );
