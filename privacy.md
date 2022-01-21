@@ -431,7 +431,7 @@ at horsepayng@gmail.com or visit any of our branches. You may also use this
 contact to communicate any concerns you have regarding compliance with our
 Privacy Policy.
 If you are not satisfied with the response you receive, you may escalate your
-concern to NITDA by visiting their website at www. nitda.gov.ng or email –
+concern to NITDA by visiting their website at www.nitda.gov.ng or email –
 info@nitda.gov.ng but this is without prejudice to your right to file an action in a
 court of law. The time frame for remedies may be determined by a court of
 competent jurisdiction or the regulator.
