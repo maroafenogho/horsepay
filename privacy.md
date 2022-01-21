@@ -346,24 +346,24 @@ the following rights:
    for doing so exists. You have the right to have your personal data erased
    if:
    
-*           The personal data is no longer necessary for the purpose
+*  The personal data is no longer necessary for the purpose
 which it was originally collected or processed for.
 
-*           Horsepay Ltd. is relying on consent as the lawful basis for
+*  Horsepay Ltd. is relying on consent as the lawful basis for
 holding the data, and you withdraw your consent.
 
-*           Horsepay Ltd. is relying on legitimate interests as the basis
+*  Horsepay Ltd. is relying on legitimate interests as the basis
 for processing, you object to the processing of your data, and
 there is no overriding legitimate interest to continue this
 processing.
 
-*           Horsepay Ltd. is processing the personal data for direct
+*  Horsepay Ltd. is processing the personal data for direct
 marketing purposes and you object to that processing.
 
-*           Horsepay Ltd. has processed the personal data unlawfully
+* Horsepay Ltd. has processed the personal data unlawfully
 (i.e. in breach of the lawfulness requirement). 
 
-*           It has to be done to comply with a legal obligation.
+* It has to be done to comply with a legal obligation.
 
 5. The right to request that we restrict our processing of your information
    if the information provided to Horsepay Ltd. are not accurate, the
