@@ -1,6 +1,4 @@
 import 'dart:io';
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:horsepay_web/utils/constants.dart';
@@ -22,21 +20,20 @@ class _MyHomePageState extends State<MyHomePage> {
     AlertDialog dialog = AlertDialog(
       content: Container(
           width: 260.0,
-          height: 200,
-          decoration: const BoxDecoration(
-            shape: BoxShape.rectangle,
-            color: Color(0x00ffffff),
-            borderRadius: BorderRadius.all(Radius.circular(10.0)),
-          ),
+          height: 150,
+          decoration: kContainerDecor,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               const SizedBox(height: 40.0),
-              const Text("Do you want to exit the app?"),
+              const Text(
+                "Do you want to exit the app?",
+                style: kOtpHeaderStyle,
+              ),
               const SizedBox(height: 40.0),
               Row(
-                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Expanded(
@@ -49,8 +46,11 @@ class _MyHomePageState extends State<MyHomePage> {
                         color: Colors.white,
                         textColor: kMainColor,
                         borderColor: kMainColor,
-                        borderRadius: 0,
-                        buttonHeight: 40),
+                        borderRadius: 6,
+                        buttonHeight: 30),
+                  ),
+                  const SizedBox(
+                    width: 15.0,
                   ),
                   Expanded(
                     flex: 1,
@@ -62,8 +62,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         color: kMainColor,
                         textColor: Colors.white,
                         borderColor: kMainColor,
-                        borderRadius: 0,
-                        buttonHeight: 40),
+                        borderRadius: 6,
+                        buttonHeight: 30),
                   ),
                 ],
               ),
@@ -87,18 +87,6 @@ class _MyHomePageState extends State<MyHomePage> {
     return true;
   }
 
-  void showError() {
-    setState(() {
-      showErrorPage = true;
-    });
-  }
-
-  void hideError() {
-    setState(() {
-      showErrorPage = false;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
@@ -109,7 +97,13 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Stack(
             children: <Widget>[
               WebView(
-                initialUrl: 'http://173.82.226.239/',
+                initialUrl: 'http://horsepay.ng',
+                navigationDelegate: (NavigationRequest request) {
+                  setState(() {
+                    isLoading = true;
+                  });
+                  return NavigationDecision.navigate;
+                },
                 zoomEnabled: false,
                 javascriptMode: JavascriptMode.unrestricted,
                 onPageFinished: (done) {
@@ -123,14 +117,8 @@ class _MyHomePageState extends State<MyHomePage> {
                 onWebResourceError: (error) {
                   setState(() {
                     showErrorPage = true;
-                    isLoading = true;
-                    // ScaffoldMessenger.of(context).showSnackBar(
-                    // SnackBar(
-                    //   content: Text('🙄 ${showErrorPage.toString()}'),
-                    // ),
-                    // );
+                    isLoading = false;
                   });
-                  // showError();
                 },
               ),
               isLoading
@@ -140,7 +128,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       width: MediaQuery.of(context).size.width,
                       child: const Center(
                           child: CircularProgressIndicator(
-                        color: Color(0xffEA6D50),
+                        color: kMainColor,
                       )),
                     )
                   : Container(),

@@ -4,7 +4,7 @@
 
    <application
         android:label="Horsepay.NG"
-        android:icon="@mipmap/logo_white"
+        android:icon="@mipmap/horsepay"
         android:usesCleartextTraffic="true"
       >
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:horsepay_web/splashscreen.dart';
+import 'package:horsepay_web/utils/constants.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'HorsePay',
-      theme: ThemeData(primaryColor: Color(0xffEA6D50)),
+      theme: ThemeData(primaryColor: kMainColor),
       home: const SplashScreen(),
     );
   }

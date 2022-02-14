@@ -2,7 +2,7 @@
 
 HorsePay is a mobile app that leverages on the webview_flutter package to display a payment platform.
 
-##What concepts are embedded within? 
+## What concepts are embedded within? 
 
 - Loading Screen:
   A loading screen displays before once the user launches the app. This screen only goes away when the webview is done loading.

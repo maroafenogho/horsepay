@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
               image: DecorationImage(
                   image: AssetImage("images/index.png"), fit: BoxFit.cover)),
           child: Container(
-            color: kMainColor,
+            color: kSplashBackColor,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,

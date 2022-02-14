@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 const kMainColor = Color(0xffEA6D50);
 const kSplashBackColor = Color(0x99EA6D50);
+const kUnkown = Color(0x00ffffff);
 const kBackButton = Color(0x1aEA6D50);
 const kYellow = Color(0xfffed700);
 const kBackBills = Color(0xb3000000);
@@ -89,3 +90,7 @@ const kOtpBorder = OutlineInputBorder(
     Radius.circular(5),
   ),
 );
+const kContainerDecor =  BoxDecoration(
+            shape: BoxShape.rectangle,
+            color: kUnkown,
+            borderRadius: BorderRadius.all(Radius.circular(16.0)));
